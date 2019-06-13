@@ -41,7 +41,7 @@ then
 
 else
 
-   exec ./srcds_run -game csgo +sv_lan $LAN -ip 0.0.0.0 $MAP -usercon $GAME_MODE $GAME_TYPE -tickrate 128 $MAXPLAYERS $SERVER_TOKEN $OTHER_ARGS $@
+   exec ./srcds_run -game csgo -condebug +sv_lan $LAN -ip 0.0.0.0 $MAP -usercon $GAME_MODE $GAME_TYPE -tickrate 128 $MAXPLAYERS $SERVER_TOKEN $OTHER_ARGS $@
 
 
 fi
