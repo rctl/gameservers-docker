@@ -1,3 +1,5 @@
 #!/bin/bash
-. ../common.sh
-docker_build csgo update.Dockerfile
+VERSION=$(date +%s)
+docker build -t rctl/gaas-csgo:$VERSION .
+docker push rctl/gaas-csgo:$VERSION
+echo $VERSION
