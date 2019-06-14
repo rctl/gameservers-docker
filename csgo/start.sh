@@ -34,19 +34,4 @@ $RCON_PASSWORD
 $SV_PASSWORD
 EOF
 
-if [[ -n $SOURCETV_ADDR ]]
-then
-   echo "tv_title $HOSTNAME" > csgo/cfg/hostname.cfg 
-   exec ./srcds_run -game csgo -console -tickrate 128 -maxplayers 64 +exec hostname.cfg +tv_relay $SOURCETV_ADDRESS $OTHER_ARGS $@
-
-else
-
-   exec ./srcds_run -game csgo -condebug +sv_lan $LAN -ip 0.0.0.0 $MAP -usercon $GAME_MODE $GAME_TYPE -tickrate 128 $MAXPLAYERS $SERVER_TOKEN $OTHER_ARGS $@
-
-
-fi
-
-
-#echo '"STEAM_0:0:19457778" "@Full Admins"' > csgo/addons/sourcemod/configs/admins_simple.ini
-
-
+exec ./srcds_run -game csgo -condebug +sv_lan 0 -ip $IP_ALLOC -net_port_try 1 $MAP -usercon $GAME_MODE $GAME_TYPE -tickrate 128 $MAXPLAYERS $SERVER_TOKEN $OTHER_ARGS $@
